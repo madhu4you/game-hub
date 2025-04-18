@@ -4,6 +4,7 @@ logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
 lerna-debug.log*
 .pnpm-debug.log*
 
@@ -41,6 +42,13 @@ build/Release
 # Dependency directories
 node_modules/
 jspm_packages/
+
+# Build directories
+dist
+dist-ssr
+
+# Local files
+*.local
 
 # Snowpack dependency directory (https://snowpack.dev/)
 web_modules/
@@ -89,7 +97,6 @@ out
 
 # Nuxt.js build / generate output
 .nuxt
-dist
 
 # Gatsby files
 .cache/
@@ -100,7 +107,7 @@ dist
 # vuepress build output
 .vuepress/dist
 
-# vuepress v2.x temp and cache directory
+# vitepress v2.x temp and cache directory
 .temp
 .cache
 
@@ -134,3 +141,14 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
