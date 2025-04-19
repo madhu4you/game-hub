@@ -2,6 +2,7 @@ import {
     Grid3x3 as TicTacToeIcon,
     GridView as SudokuIcon,
     Spellcheck as SpellingBeeIcon,
+    Memory as MemoryIcon,
 } from "@mui/icons-material";
 
 export const gamesList = [
@@ -46,5 +47,19 @@ export const gamesList = [
         rules: "Create words using the provided letters, always including the center letter.",
         gradientFrom: "#FFC107",
         gradientTo: "#FF9800",
+    },
+    {
+        id: "memory-match",
+        title: "Memory Match",
+        description:
+            "Find matching pairs of cards in this classic memory game with multiple difficulty levels.",
+        icon: MemoryIcon,
+        path: "/games/memory-match",
+        difficulty: "Easy to Medium",
+        players: "1 Player",
+        duration: "3-10 minutes",
+        rules: "Flip cards to find matching pairs. Remember card positions to complete the game faster!",
+        gradientFrom: "#4CAF50",
+        gradientTo: "#8BC34A",
     },
 ];

@@ -10,6 +10,7 @@ import GamesPage from "./GamesPage";
 import TicTacToePage from "./games/TicTacToePage";
 import SudokuPage from "./games/SudokuPage";
 import SpellingBeePage from "./games/SpellingBeePage";
+import MemoryMatchPage from "./games/MemoryMatchPage";
 import LoginPage from "./LoginPage";
 import ProfilePage from "./ProfilePage";
 import LeaderboardPage from "./LeaderboardPage";
@@ -57,6 +58,12 @@ const spellingBeeRoute = createRoute({
     getParentRoute: () => rootRoute,
     path: "/games/spelling-bee",
     component: SpellingBeePage,
+});
+
+const memoryMatchRoute = createRoute({
+    getParentRoute: () => rootRoute,
+    path: "/games/memory-match",
+    component: MemoryMatchPage,
 });
 
 const loginRoute = createRoute({
@@ -115,6 +122,7 @@ export const router = createRouter({
         ticTacToeRoute,
         sudokuRoute,
         spellingBeeRoute,
+        memoryMatchRoute,
         loginRoute,
         profileRoute,
         leaderboardRoute,

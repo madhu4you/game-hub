@@ -10,6 +10,7 @@ import {
     Divider,
     Toolbar,
     Typography,
+    Tooltip,
 } from "@mui/material";
 import {
     Home as HomeIcon,
@@ -17,6 +18,7 @@ import {
     Grid3x3 as TicTacToeIcon,
     GridView as SudokuIcon,
     Spellcheck as SpellingBeeIcon,
+    Memory as MemoryIcon,
     Leaderboard as LeaderboardIcon,
     EmojiEvents as AchievementsIcon,
     Info as AboutIcon,
@@ -67,6 +69,11 @@ const Sidebar = ({
             text: "Spelling Bee",
             icon: <SpellingBeeIcon />,
             path: "/games/spelling-bee",
+        },
+        {
+            text: "Memory Match",
+            icon: <MemoryIcon />,
+            path: "/games/memory-match",
             divider: true,
         },
         {
@@ -120,6 +127,48 @@ const Sidebar = ({
                 {mainMenuItems.map((item) => (
                     <React.Fragment key={item.text}>
                         <ListItem disablePadding>
+                            <Tooltip 
+                                title={!open ? item.text : ""} 
+                                placement="right" 
+                                arrow
+                            >
+                                <ListItemButton
+                                    component={Link}
+                                    to={item.path}
+                                    selected={isPathActive(item.path)}
+                                    sx={{
+                                        minHeight: 48,
+                                        justifyContent: open ? "initial" : "center",
+                                        px: 2.5,
+                                    }}
+                                >
+                                    <ListItemIcon
+                                        sx={{
+                                            minWidth: 0,
+                                            mr: open ? 3 : "auto",
+                                            justifyContent: "center",
+                                        }}
+                                    >
+                                        {item.icon}
+                                    </ListItemIcon>
+                                    {open && <ListItemText primary={item.text} />}
+                                </ListItemButton>
+                            </Tooltip>
+                        </ListItem>
+                        {item.divider && <Divider />}
+                    </React.Fragment>
+                ))}
+            </List>
+            <Box sx={{ flexGrow: 1 }} />
+            <Divider />
+            <List>
+                {footerMenuItems.map((item) => (
+                    <ListItem key={item.text} disablePadding>
+                        <Tooltip 
+                            title={!open ? item.text : ""} 
+                            placement="right" 
+                            arrow
+                        >
                             <ListItemButton
                                 component={Link}
                                 to={item.path}
@@ -141,37 +190,7 @@ const Sidebar = ({
                                 </ListItemIcon>
                                 {open && <ListItemText primary={item.text} />}
                             </ListItemButton>
-                        </ListItem>
-                        {item.divider && <Divider />}
-                    </React.Fragment>
-                ))}
-            </List>
-            <Box sx={{ flexGrow: 1 }} />
-            <Divider />
-            <List>
-                {footerMenuItems.map((item) => (
-                    <ListItem key={item.text} disablePadding>
-                        <ListItemButton
-                            component={Link}
-                            to={item.path}
-                            selected={isPathActive(item.path)}
-                            sx={{
-                                minHeight: 48,
-                                justifyContent: open ? "initial" : "center",
-                                px: 2.5,
-                            }}
-                        >
-                            <ListItemIcon
-                                sx={{
-                                    minWidth: 0,
-                                    mr: open ? 3 : "auto",
-                                    justifyContent: "center",
-                                }}
-                            >
-                                {item.icon}
-                            </ListItemIcon>
-                            {open && <ListItemText primary={item.text} />}
-                        </ListItemButton>
+                        </Tooltip>
                     </ListItem>
                 ))}
             </List>
